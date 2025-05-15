@@ -13,9 +13,9 @@ Labs and materials from the **Operating Systems** course at PUCP, **taught by Vi
 7. FAT file system
 
 
-![pid1](labs/lab1/2024-2/assets/pid-1.jpeg)
-
-
----
-
 **Note**: It is recommended to review the reference [books](/books).
+
+<div align="center">
+  <img src="labs/lab1/2024-2/assets/pid-1.jpeg" alt="pid0" width="500"/>
+</div>
+
