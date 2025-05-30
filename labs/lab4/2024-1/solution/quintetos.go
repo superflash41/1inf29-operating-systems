@@ -21,9 +21,9 @@ func task(n int) {
 		fmt.Printf("%d", n)
 		mu.Lock()
 		count++
-		shouldPrintNewline := (count % 5) == 0
+		newLine := (count % 5) == 0
 		mu.Unlock()
-		if shouldPrintNewline {
+		if newLine {
 			fmt.Println() // endl
 			for j := 0; j < 5; j++ {
 				c[j] <- 1 // keep printing
