@@ -8,78 +8,90 @@ import (
 // Saymon N. - 20211866
 
 var (
-	wg sync.WaitGroup
-	c []chan int
+	wg   sync.WaitGroup
+	c    []chan int
 	aorb int
+	mu   sync.Mutex
 )
 
+func getAorb() int {
+	mu.Lock()
+	defer mu.Unlock()
+	return aorb
+}
+
+func toggleAorb() {
+	mu.Lock()
+	if aorb == 0 {
+		aorb = 1
+	} else {
+		aorb = 0
+	}
+	mu.Unlock()
+}
+
 func worker1() { // c[0]
+	defer wg.Done()
 	for {
-		<- c[0]
+		<-c[0]
 		fmt.Printf("A")
-		if aorb == 1 {
+		if getAorb() == 1 {
 			c[2] <- 1
 		} else {
 			c[1] <- 1
 		}
 	}
-	wg.Done()
 }
 
 func worker2() { // c[1]
+	defer wg.Done()
 	for {
-		<- c[1]
+		<-c[1]
 		fmt.Printf("B")
-		if aorb == 1 {
+		if getAorb() == 1 {
 			c[0] <- 1
 		} else {
 			c[2] <- 1
 		}
 	}
-	wg.Done()
 }
 
 func worker3() { // c[2]
+	defer wg.Done()
 	for {
-		<- c[2]
+		<-c[2]
 		fmt.Printf("C")
-		if aorb == 0 {
-			aorb = 1
-		} else {
-			aorb = 0
-		}
+		toggleAorb()
 		c[3] <- 1
 	}
-	wg.Done()
 }
 
 func worker4() { // c[3]
+	defer wg.Done()
 	for {
-		<- c[3]
+		<-c[3]
 		fmt.Printf("D")
 		c[4] <- 1
 	}
-	wg.Done()
 }
 
 func worker5() { // c[4]
+	defer wg.Done()
 	for {
-		<- c[4]
+		<-c[4]
 		fmt.Printf("E")
-		if aorb == 1 {
+		if getAorb() == 1 {
 			c[1] <- 1
 		} else {
 			c[0] <- 1
 		}
 	}
-	wg.Done()
 }
 
 func main() {
-	aorb = 0 // AB:0   BA:1
-	// slice of channels
+	aorb = 0 // AB->0   BA->1
 	c = make([]chan int, 5)
-	for i:= range c {
+	for i := range c {
 		c[i] = make(chan int, 1)
 	}
 	wg.Add(5)
@@ -88,7 +100,7 @@ func main() {
 	go worker3()
 	go worker4()
 	go worker5()
-	c[0] <- 1 // start with A
+	c[0] <- 1 // start w A
 	wg.Wait()
 	fmt.Printf("\n")
 }
