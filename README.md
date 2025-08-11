@@ -1,23 +1,13 @@
 # Operating Systems (1INF29)
 
-Labs and materials from the **Operating Systems** course at PUCP, **taught by Viktor Khlebnikov in semesters 2024-1, 2024-2, and 2025-1**.
+Labs and materials from the Operating Systems course at PUCP, taught by Viktor Khlebnikov (2024-1, 2024-2 and 2025-1).
+<br>
 
-Includes solutions and theoretical guides.
+Check [books](/books) for reference.
 
-## Topics
-
-1. Linux fundamentals and shell scripting
-2. Process management in C using `fork()`
-3. Multiprogramming with _POSIX_ threads in C
-4. Concurrent programming in Go
-5. CPU scheduling algorithms
-6. Custom memory allocator (`xmalloc`) in C
-7. FAT file system
-
-
-**Note**: Check the reference [books](/books).
+<br>
 
 <div align="center">
-  <img src="labs/lab1/2024-2/assets/pid-1.jpeg" alt="pid0" width="500"/>
+  <img src="labs/lab1/2024-2/assets/pid-1.jpeg" alt="pid0" width="400"/>
 </div>
 
