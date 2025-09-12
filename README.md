@@ -8,6 +8,6 @@ Check [books](/books) for reference.
 <br>
 
 <div align="center">
-  <img src="labs/lab1/2024-2/assets/pid-1.jpeg" alt="pid0" width="400"/>
+  <img src="labs/lab1/20242/assets/pid-1.jpeg" alt="pid0" width="400"/>
 </div>
 
