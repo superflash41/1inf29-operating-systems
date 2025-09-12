@@ -125,7 +125,7 @@ We know we need to find two holes: the ones that are before and after `bp`. It c
 - *normal* case: `bp` is in the **middle** of the list
 - *extreme* case: `bp` is not in the middle of the list, but **on one extreme** (before all the holes, or after all the holes) based on its memory address
 
-![img](guide/assets/img.png)
+![img](guia/assets/img.png)
 
 To handle this situation, when we iterate trough the list we need to identify the two moments where we can stop.
 
