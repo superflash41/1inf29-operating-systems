@@ -33,6 +33,7 @@ int main(int narg, char** argv) {
         write(fdp[i][WRITE], msg, sizeof(msg));
         close(fdp[i][WRITE]);
         printf("Message sent from process[%d]\n", getpid());
+        // the message goes around the ring and comes back to process 0
         memset(msg, 0, BFSZ);
         while (read(fdp[n-1][READ], msg, sizeof(msg))) {
             waitpid(-1, NULL, 0);

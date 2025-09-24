@@ -19,7 +19,7 @@ void strrev(char* s) {
 
 void strcap(char* s) {
     for (int i=0; s[i]; i++)
-        s[i] -= (s[i]>='a' && s[i]<='z') ? 'a'-'A' : 0;
+        s[i] -= (s[i]>='a' && s[i]<='z') ? 'a'-'A' : 0; // memories from INF144
 }
 
 void process(int rfdp, int wfdp, char* msg, void(*fun)(char*)) {
@@ -59,10 +59,8 @@ int main() {
             printf("%s\n", msg);
         }
         close(fdp[2][READ]);
-    } else if (i==1) // reverse
-        process(fdp[(i+2)%3][READ], fdp[i][WRITE], msg, strrev);
-    else // capitalize
-        process(fdp[(i+2)%3][READ], fdp[i][WRITE], msg, strcap);
+    } else // reverse or capitalize
+        process(fdp[(i+2)%3][READ], fdp[i][WRITE], msg, (i==1) ? strrev : strcap);
     wait(NULL);
     return 0;
 }
