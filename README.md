@@ -1,6 +1,6 @@
 # Operating Systems (1INF29)
 
-Labs and materials from the Operating Systems course at PUCP, taught by Viktor Khlebnikov (2024-1, 2024-2 and 2025-1).
+Labs and materials from the Operating Systems course at PUCP, taught by Viktor Khlebnikov.
 <br>
 
 Check [books](/books) for reference.
