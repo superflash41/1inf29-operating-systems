@@ -10,11 +10,15 @@
 
 .DS_Store
 Thumbs.db
-*.lock
 *.backup
 
 .vscode/
 .idea/
 *.sublime-workspace
 *.sublime-project
-*~
+
+# nix flake
+.direnv/
+result
+result-*
+.envrc
