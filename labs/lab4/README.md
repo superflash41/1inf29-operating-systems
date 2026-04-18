@@ -1,36 +1,42 @@
 # Concurrency
 ## Concurrency vs Parallelism
-> Concurrency is about **dealing with** lots of things at once.
+> Concurrency is about *dealing* with lots of things at once.
 >
-> Parallelism is about **doing** lots of things at once.
+> Parallelism is about *doing* lots of things at once.
 > 
-> \- Rob Pike
-# Go
-Also referred to as Golang, it is a expressive, concise, clean, and efficient programming language (at least Google says so).
-## Hello, world!
-In Go, every program is part of a package, and the `main` package serves as the entry point of a Go application. Here we define a simple program that outputs `Hello, World!`.
+> \- Rob Pike (creator of Go)
+
+## Go
+also referred to as Golang, it is a expressive, concise, clean, and efficient programming language.
+
+### hello, world!
+in Go, every program is part of a package, and the `main` package serves as the entry point for Go applications.
+
+we define a simple program that outputs `hello, world!`.
 
 ```go
 package main
 import "fmt"
 
 func main() {
-    fmt.Println("Hello, World!")
+    fmt.Println("hello, world!")
 }
 ```
-# Concurrency in Go
-We will use Go in this lab due to its **concurrency mechanisms**, which are among its most notable features.
-## Goroutines
-Goroutines are **lightweight threads** managed by the Go runtime. They are used to **execute functions concurrently**.
+
+## concurrency in Go
+we will use Go in this lab due to its **concurrency mechanisms**, which are among its most notable features.
+
+### goroutines
+goroutines are **lightweight threads** managed by the Go runtime. they are used to **execute functions concurrently**.
 
 ```go
 go func() {
-	fmt.Println("This is running in a goroutine")
+	fmt.Println("this is running in a goroutine")
 }()
 ```
 
-## Channels
-Channels are tools for **communicating between goroutines**. They can be **buffered** or **unbuffered**, which means they can allow the passing of one or more than one values at a time to a channel.
+### channels
+channels are tools for **communicating between goroutines**. they can be **buffered** or **unbuffered**, which means they can allow the passing of one or more than one value at a time through a channel.
 
 ```go
 ch := make(chan int)
@@ -42,8 +48,8 @@ value := <- ch // receives the value from the channel
 fmt.Println(value)
 ```
 
-## Mutexes
-Mutexes are **synchronization primitives** used in concurrent programming to ensure that multiple threads or **goroutines do not simultaneously access a shared resource**.
+### mutexes
+mutexes are **synchronization primitives** used in concurrent programming to ensure that multiple threads or **goroutines do not simultaneously access a shared resource**.
 
 ```go
 package main
@@ -54,7 +60,7 @@ import (
 
 func routine(n int) {
 	defer wg.Done()
-	fmt.Printf("I am goroutine %d\n", n)
+	fmt.Printf("i am goroutine %d\n", n)
 }
 
 var wg sync.WaitGroup
@@ -71,4 +77,4 @@ func main() {
 ---
 # References
 - [Go Official Documentation](https://go.dev/doc/)
-
+- [Laboratory Guide](./guia/1inf29-lab4-guia.pdf)
