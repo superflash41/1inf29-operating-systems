@@ -398,3 +398,8 @@ el objetivo es hacer que la salida sea algo como `6767676767...` (alternando ent
 
 ### 8 ejemplo con mutex
 
+en la página 9 de la guía se muestra un ejemplo muy ilustrativo de cómo usar un `sync.Mutex` para proteger el acceso a una variable compartida. ahora mostrar
+
+
+
+
