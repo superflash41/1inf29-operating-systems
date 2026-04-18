@@ -1,5 +1,5 @@
 {
-  description = "local ai env with llama-server and open webui";
+  description = "sisops";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
