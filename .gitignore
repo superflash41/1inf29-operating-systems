@@ -6,6 +6,7 @@
 *.dylib
 *.dll
 *.exe
+*.in
 *.out
 
 .DS_Store
