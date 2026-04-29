@@ -396,6 +396,8 @@ este script genera la siguiente salida:
 el objetivo es hacer que la salida sea algo como `6767676767...` (alternando entre 6 y 7). un ejemplo de solu se encuentra en [sixseven.go](./sixseven.go) usando canales sin búfer.
 
 
+## mutexes y variables de condición
+
 ### 8. ejemplo con mutex
 
 en la página 9 de la guía se muestra un ejemplo de un problema que puede occurir si no se coordina el acceso a un recurso compartido. el código se encuentra en [million.go](./million.go):
@@ -554,7 +556,7 @@ en esta subsección menciono un tipo de variable de sincronización que no se en
 
 esta analogía es medio forzada, pero la idea es que `sync.Cond` le permite a una gorutina esperar (de manera eficiente) a que le avisen que cierta condición se haya cumplido, y por lo tanto, pueda recuperar el acceso exclusivo al recurso compartido.
 
-ahora muestro la solución al ejercicio de la página 14, el cual es un problema de productor-consumidor. el código se encuentra en [prodcom.go](./prodcom.go):
+ahora muestro la solu al ejercicio de la página 14, el cual es un problema de productor-consumidor. el código se encuentra en [prodcom.go](./prodcom.go) y se resuelve usando `sync.Cond`:
 
 ```go
 package main
